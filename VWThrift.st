@@ -1,997 +1,708 @@
-'From VisualWorks®, 7.9.1 of 18 October 2012 on 31 October 2016 at 8:42:43 AM'!
-
-
-CodeComponent create: #package named: 'Thrift'!"Package Thrift*"!
-
-
-Error subclass: #TError
-	instanceVariableNames: 'code '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift'!
-
-TError class
-	instanceVariableNames: ''!
-
-TError subclass: #TProtocolError
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
-
-TProtocolError class
-	instanceVariableNames: ''!
-
-TError subclass: #TTransportError
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Transport'!
-
-TTransportError class
-	instanceVariableNames: ''!
-
-TTransportError subclass: #TTransportClosedError
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Transport'!
-
-TTransportClosedError class
-	instanceVariableNames: ''!
-
-Object subclass: #TClient
-	instanceVariableNames: 'iprot oprot seqid remoteSeqid '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift'!
-
-TClient class
-	instanceVariableNames: ''!
-
-Object subclass: #TField
-	instanceVariableNames: 'name type id '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
-
-TField class
-	instanceVariableNames: ''!
-
-Object subclass: #TMessage
-	instanceVariableNames: 'name seqid type '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
-
-TMessage class
-	instanceVariableNames: ''!
-
-TMessage subclass: #TCallMessage
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
-
-TCallMessage class
-	instanceVariableNames: ''!
-
-Object subclass: #TProtocol
-	instanceVariableNames: 'transport '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
-
-TProtocol class
-	instanceVariableNames: ''!
-
-TProtocol subclass: #TBinaryProtocol
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
-
-TBinaryProtocol class
-	instanceVariableNames: ''!
-
-Object subclass: #TResult
-	instanceVariableNames: 'success oprot iprot exception '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift'!
-
-TResult class
-	instanceVariableNames: ''!
+<?xml version="1.0"?>
+
+<st-source>
+<time-stamp>From VisualWorks®, 7.9.1 of 18 October 2012 on 31 October 2016 at 7:15:54 PM</time-stamp>
+
+
+<component-created>
+<name>Thrift</name> <type>package</type>
+</component-created><!-- Package Thrift* -->
+
+
+<component-created>
+<name>Thrift</name> <type>package</type>
+</component-created>
+
+<class>
+<name>TClient</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>iprot oprot seqid remoteSeqid </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TField</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>name type id </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TMessage</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>name seqid type </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TCallMessage</name>
+<environment>Smalltalk</environment>
+<super>TMessage</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TProtocol</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>transport </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TBinaryProtocol</name>
+<environment>Smalltalk</environment>
+<super>TProtocol</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TResult</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>success oprot iprot exception </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TSizedObject</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>size </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TList</name>
+<environment>Smalltalk</environment>
+<super>TSizedObject</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>elemType </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TSet</name>
+<environment>Smalltalk</environment>
+<super>TList</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TMap</name>
+<environment>Smalltalk</environment>
+<super>TSizedObject</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>keyType valueType </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TSocket</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>host port stream socket </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Transport</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TStruct</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>name </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TTransport</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Transport</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TType</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TError</name>
+<environment>Smalltalk</environment>
+<super>Core.Error</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>code </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TProtocolError</name>
+<environment>Smalltalk</environment>
+<super>TError</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TTransportError</name>
+<environment>Smalltalk</environment>
+<super>TError</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Transport</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TTransportClosedError</name>
+<environment>Smalltalk</environment>
+<super>TTransportError</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Transport</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<methods>
+<class-id>TSizedObject</class-id> <category>as yet unclassified</category>
+
+<body package="Thrift" selector="size:">size: anInteger		size := anInteger</body>
+
+<body package="Thrift" selector="size">size		^size ifNil: [0]</body>
+</methods>
+
+
+<methods>
+<class-id>TMap</class-id> <category>accessing</category>
+
+<body package="Thrift" selector="keyType">keyType		^keyType ifNil: [TType stop]</body>
+
+<body package="Thrift" selector="valueType">valueType		^valueType ifNil: [TType stop]</body>
+
+<body package="Thrift" selector="keyType:">keyType: anInteger		keyType := anInteger</body>
+
+<body package="Thrift" selector="valueType:">valueType: anInteger		valueType := anInteger</body>
+</methods>
+
+
+<methods>
+<class-id>TSocket</class-id> <category>as yet unclassified</category>
+
+<body package="Thrift" selector="read:">read: size		| data |	[data := stream next: size.	data isEmpty		ifTrue:			[TTransportError signal: 'Could not read ' , size asString , ' bytes'].	^data]		on: OsError		do: [TTransportClosedError signal]</body>
+
+<body package="Thrift" selector="host:">host: aString		host := aString</body>
+
+<body package="Thrift" selector="write:">write: aCollection		[stream nextPutAll: aCollection]		on: OsError		do: [TTransportClosedError signal]</body>
+
+<body package="Thrift" selector="close">close		[self isOpen ifTrue: [stream close]] ensure: [			socket ifNotNil: [			socket close. socket := nil.		]	]</body>
+
+<body package="Thrift" selector="socketAccessor">socketAccessor		^Smalltalk		at: #SocketAccessor		ifAbsent: [ Error raiseSignal: 'Socket Accessor Not Found' ]</body>
+
+<body package="Thrift" selector="isOpen">isOpen		^stream isNil not		and: [socket notNil and: [ socket isActive]]</body>
+
+<body package="Thrift" selector="open">open		stream := self connect</body>
+
+<body package="Thrift" selector="flush">flush		stream flush</body>
+
+<body package="Thrift" selector="port:">port: anInteger		port := anInteger</body>
+
+<body package="Thrift" selector="connect">connect	"Returns instance of #socketAccessor class"	socket := self socketAccessor		family: self socketAccessor AF_INET type: self socketAccessor SOCK_STREAM.	[ socket connectTo: (IPSocketAddress hostName: host port: port) timeout: 180 ]		ifCurtailed: [ socket close ].	^socket readAppendStream</body>
+</methods>
+
+
+<methods>
+<class-id>TStruct</class-id> <category>accessing</category>
+
+<body package="Thrift" selector="name:">name: aString		name := aString</body>
+
+<body package="Thrift" selector="name">name		^name</body>
+</methods>
+
+
+<methods>
+<class-id>TError class</class-id> <category>as yet unclassified</category>
+
+<body package="Thrift" selector="signalWithCode:">signalWithCode: anInteger		(self new)		code: anInteger;		signal</body>
+</methods>
+
+
+<methods>
+<class-id>TError</class-id> <category>as yet unclassified</category>
+
+<body package="Thrift" selector="code">code		^code</body>
+
+<body package="Thrift" selector="code:">code: anInteger		code := anInteger</body>
+</methods>
 
-Object subclass: #TSizedObject
-	instanceVariableNames: 'size '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
 
-TSizedObject class
-	instanceVariableNames: ''!
+<methods>
+<class-id>TTransport</class-id> <category>as yet unclassified</category>
 
-TSizedObject subclass: #TList
-	instanceVariableNames: 'elemType '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
+<body package="Thrift" selector="readAll:">readAll: anInteger		^String new writeStream		ifNotNil:			[:str | 			[str size &lt; anInteger]				whileTrue: [str nextPutAll: (self read: anInteger - str size)]]</body>
 
-TList class
-	instanceVariableNames: ''!
+<body package="Thrift" selector="flush">flush		self subclassResponsibility</body>
 
-TList subclass: #TSet
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
+<body package="Thrift" selector="read:">read: anInteger		self subclassResponsibility</body>
 
-TSet class
-	instanceVariableNames: ''!
+<body package="Thrift" selector="write:">write: aString		self subclassResponsibility</body>
 
-TSizedObject subclass: #TMap
-	instanceVariableNames: 'keyType valueType '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
+<body package="Thrift" selector="close">close		self subclassResponsibility</body>
 
-TMap class
-	instanceVariableNames: ''!
+<body package="Thrift" selector="isOpen">isOpen		self subclassResponsibility</body>
 
-Object subclass: #TSocket
-	instanceVariableNames: 'host port stream '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Transport'!
+<body package="Thrift" selector="open">open		self subclassResponsibility</body>
+</methods>
 
-TSocket class
-	instanceVariableNames: ''!
 
-Object subclass: #TStruct
-	instanceVariableNames: 'name '
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Protocol'!
+<methods>
+<class-id>TType class</class-id> <category>as yet unclassified</category>
 
-TStruct class
-	instanceVariableNames: ''!
+<body package="Thrift" selector="string">string		^11</body>
 
-Object subclass: #TTransport
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift-Transport'!
+<body package="Thrift" selector="set">set		^14</body>
 
-TTransport class
-	instanceVariableNames: ''!
+<body package="Thrift" selector="nameOf:">nameOf: aTypeCode		self typeMap do: [:each | each second = aTypeCode ifTrue: [^each first]].	^nil</body>
 
-Object subclass: #TType
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Thrift'!
+<body package="Thrift" selector="stop">stop		^0</body>
 
-TType class
-	instanceVariableNames: ''!
+<body package="Thrift" selector="bool">bool		^2</body>
 
-!TMessage methodsFor: 'accessing' stamp: ' 31/10/16 08:42'!
+<body package="Thrift" selector="i16">i16		^6</body>
 
-seqid
-	
-	^seqid ifNil: [0]!
+<body package="Thrift" selector="codeOf:">codeOf: aTypeName		self typeMap do: [:each | each first = aTypeName ifTrue: [^each second]].	^nil</body>
 
-seqid: anInteger
-	
-	seqid := anInteger!
+<body package="Thrift" selector="struct">struct		^12</body>
 
-type
-	
-	^type ifNil: [0]!
+<body package="Thrift" selector="typeMap">typeMap		^#(#(#bool 2) #(#byte 3) #(#double 4) #(#i16 6) #(#i32 8) #(#i64 10) #(#list 15) #(#map 13) #(#set 15) #(#stop 0) #(#string 11) #(#struct 12) #(#void 1))</body>
 
-type: anInteger
-	
-	type := anInteger!
+<body package="Thrift" selector="void">void		^1</body>
 
-name: aString
-	
-	name := aString!
+<body package="Thrift" selector="i32">i32		^8</body>
 
-name
-	
-	^name ifNil: ['']! !
+<body package="Thrift" selector="map">map		^13</body>
 
+<body package="Thrift" selector="i64">i64		^10</body>
 
-!TCallMessage methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
+<body package="Thrift" selector="double">double		^4</body>
 
-type
-	
-	^1! !
+<body package="Thrift" selector="list">list		^15</body>
 
+<body package="Thrift" selector="byte">byte		^3</body>
+</methods>
 
-!TProtocol methodsFor: 'writing' stamp: ' 31/10/16 08:42'!
 
-writeMapEnd
-	
-	!
+<methods>
+<class-id>TProtocolError class</class-id> <category>as yet unclassified</category>
 
-writeStructEnd
-	
-	!
+<body package="Thrift" selector="invalidData">invalidData		^1</body>
 
-writeMessageEnd
-	
-	!
+<body package="Thrift" selector="unknown">unknown		^0</body>
 
-writeSetEnd
-	
-	!
+<body package="Thrift" selector="badVersion">badVersion		^4</body>
 
-writeFieldBegin: aField
-	
-	!
+<body package="Thrift" selector="sizeLimit">sizeLimit		^3</body>
 
-writeMapBegin: aMap
-	
-	!
+<body package="Thrift" selector="negativeSize">negativeSize		^2</body>
+</methods>
 
-writeBool: aBool
-	
-	!
 
-writeMessageBegin
-	
-	!
+<methods>
+<class-id>TClient class</class-id> <category>as yet unclassified</category>
 
-writeStructBegin: aStruct
-	
-	!
+<body package="Thrift" selector="binaryOnHost:port:">binaryOnHost: aString port: anInteger		| sock |	sock := (TSocket new)		host: aString;		port: anInteger;		open;		yourself.	^(self new)		inProtocol: (TBinaryProtocol new transport: sock);		yourself</body>
+</methods>
 
-writeSetBegin: aSet
-	
-	!
 
-writeListBegin: aList
-	
-	!
+<methods>
+<class-id>TClient</class-id> <category>as yet unclassified</category>
 
-writeI16: i16
-	
-	!
+<body package="Thrift" selector="inProtocol:">inProtocol: aProtocol		iprot := aProtocol.	oprot ifNil: [oprot := aProtocol]</body>
 
-writeI64: i64
-	
-	!
-
-writeString: aString
-	
-	!
-
-writeListEnd
-	
-	!
-
-writeFieldStop
-	
-	!
-
-writeI32: i32
-	
-	!
-
-writeDouble: aFloat
-	
-	!
-
-writeByte: aByte
-	
-	!
-
-writeFieldEnd
-	
-	! !
-
-!TProtocol methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-transport: aTransport
-	
-	transport := aTransport!
-
-transport
-	
-	^transport! !
-
-!TProtocol methodsFor: 'reading' stamp: ' 31/10/16 08:42'!
-
-readStructBegin
-	
-	!
-
-readMapEnd
-	
-	!
-
-readMapBegin
-	
-	!
-
-readMessageEnd
-	
-	!
-
-readDouble
-	
-	!
-
-readSetBegin
-	
-	!
-
-readByte
-	
-	!
-
-readSetEnd
-	
-	!
-
-readSimpleType: aType
-	
-	aType = TType bool ifTrue: [^self readBool].
-	aType = TType byte ifTrue: [^self readByte].
-	aType = TType double ifTrue: [^self readDouble].
-	aType = TType i16 ifTrue: [^self readI16].
-	aType = TType i32 ifTrue: [^self readI32].
-	aType = TType i64 ifTrue: [^self readI64].
-	aType = TType list ifTrue: [^self readBool]!
-
-readString
-	
-	!
-
-readListBegin
-	
-	!
-
-skip: aType
-	
-	aType = TType stop ifTrue: [^self].
-	aType = TType bool ifTrue: [^self readBool].
-	aType = TType byte ifTrue: [^self readByte].
-	aType = TType i16 ifTrue: [^self readI16].
-	aType = TType i32 ifTrue: [^self readI32].
-	aType = TType i64 ifTrue: [^self readI64].
-	aType = TType string ifTrue: [^self readString].
-	aType = TType double ifTrue: [^self readDouble].
-	aType = TType struct
-		ifTrue:
-			[| field |
-			self readStructBegin.
-			[(field := self readFieldBegin) type = TType stop]
-				whileFalse:
-					[self skip: field type.
-					self readFieldEnd].
-			^self readStructEnd].
-	aType = TType map
-		ifTrue:
-			[| map |
-			map := self readMapBegin.
-			map size
-				timesRepeat:
-					[self skip: map keyType.
-					self skip: map valueType].
-			^self readMapEnd].
-	aType = TType list
-		ifTrue:
-			[| list |
-			list := self readListBegin.
-			list size timesRepeat: [self skip: list elemType].
-			^self readListEnd].
-	aType = TType set
-		ifTrue:
-			[| set |
-			set := self readSetBegin.
-			set size timesRepeat: [self skip: set elemType].
-			^self readSetEnd].
-	self error: 'Unknown type'!
-
-readI64
-	
-	!
-
-readFieldEnd
-	
-	!
-
-readStructEnd
-	
-	!
-
-readI16
-	
-	!
-
-readBool
-	
-	!
-
-readFieldBegin
-	
-	!
-
-readI32
-	
-	!
-
-readMessageBegin
-	
-	!
-
-readListEnd
-	
-	! !
-
-
-!TBinaryProtocol methodsFor: 'writing' stamp: ' 31/10/16 08:42'!
-
-writeMapBegin: aMap
-	
-	self
-		writeByte: aMap keyType;
-		writeByte: aMap valueType;
-		writeI32: aMap size!
-
-writeFieldBegin: aField
-	
-	self writeByte: aField type.
-	self writeI16: aField id!
-
-writeInt: val size: size
-	
-	1
-		to: size
-		do:
-			[:n | self writeByte: ((val bitShift: (size negated + n) * 8) bitAnd: 16rFF)]!
-
-writeBool: bool
-	
-	bool
-		ifTrue: [self writeByte: 1]
-		ifFalse: [self writeByte: 0]!
-
-write: aString
-	
-	transport write: aString!
-
-writeSetBegin: aSet
-	
-	self
-		writeByte: aSet elemType;
-		writeI32: aSet size!
-
-writeListBegin: aList
-	
-	self
-		writeByte: aList elemType;
-		writeI32: aList size!
-
-writeI16: i16
-	
-	self writeInt: i16 size: 2!
-
-writeField: aField
-	
-	self
-		writeByte: aField type;
-		writeI16: aField id!
-
-writeI64: i64
-	
-	self writeInt: i64 size: 8!
-
-writeString: aString
-	
-	self
-		writeI32: aString size;
-		write: aString!
-
-writeFieldStop
-	
-	self writeByte: TType stop!
-
-writeI32: i32
-	
-	self writeInt: i32 size: 4!
-
-writeByte: aNumber
-	
-	aNumber > 16rFF ifTrue: [TError signal: 'writeByte too big'].
-	transport write: (Array with: aNumber)!
-
-writeDouble: aDouble
-	
-	self
-		writeI32: (aDouble basicAt: 1);
-		writeI32: (aDouble basicAt: 2)!
-
-writeMessageBegin: msg
-	
-	self
-		writeI32: (self version1 bitOr: msg type);
-		writeString: msg name;
-		writeI32: msg seqid! !
-
-!TBinaryProtocol methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-versionMask
-	
-	^16rFFFF0000!
-
-version1
-	
-	^16r80010000! !
-
-!TBinaryProtocol methodsFor: 'reading' stamp: ' 31/10/16 08:42'!
-
-intFromByteArray: buf
-	
-	| vals |
-	vals := Array new: buf size.
-	1
-		to: buf size
-		do:
-			[:n | 
-			vals
-				at: n
-				put: ((buf at: n) bitShift: (buf size - n) * 8)].
-	^vals sum!
-
-readMapBegin
-	
-	^(TMap new)
-		keyType: self readByte;
-		valueType: self readByte;
-		size: self readI32!
-
-readString
-	
-	| sz |
-	sz := self readI32.
-	^sz > 0
-		ifTrue: [(transport read: sz) asString]
-		ifFalse: ['']!
-
-readDouble
-	
-	| val |
-	val := Float new: 2.
-	^val
-		basicAt: 1
-			put: (self readRawInt: 4);
-		basicAt: 2
-			put: (self readRawInt: 4);
-		yourself!
-
-readSetBegin
-	"element type, size"
-	
-	^(TSet new)
-		elemType: self readByte;
-		size: self readI32!
-
-readByte
-	
-	^(self transport read: 1) first!
-
-unsignedInt: val size: size
-	
-	^0 - (val - 1 bitXor: (2 raisedTo: size * 8) - 1)!
-
-readListBegin
-	
-	^(TList new)
-		elemType: self readByte;
-		size: self readI32!
-
-readInt: size
-	
-	| buf val |
-	buf := transport read: size.
-	val := self intFromByteArray: buf.
-	^buf first > 16r7F
-		ifTrue: [self unsignedInt: val size: size]
-		ifFalse: [val]!
-
-readI64
-	
-	^self readInt: 8!
-
-readRawInt: size
-	
-	^self intFromByteArray: (transport read: size)!
-
-readI16
-	
-	^self readInt: 2!
-
-readBool
-	
-	^self readByte isZero not!
-
-readFieldBegin
-	
-	| field |
-	field := TField new type: self readByte.
-	^field type = TType stop
-		ifTrue: [field]
-		ifFalse:
-			[field
-				id: self readI16;
-				yourself]!
-
-readI32
-	
-	^self readInt: 4!
-
-readMessageBegin
-	
-	| version |
-	version := self readI32.
-	(version bitAnd: self versionMask) = self version1
-		ifFalse: [TProtocolError signalWithCode: TProtocolError badVersion].
-	^(TMessage new)
-		type: (version bitAnd: 16r000000FF);
-		name: self readString;
-		seqid: self readI32! !
-
-
-!TResult methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-exception
-	
-	^exception!
-
-success: anObject
-	
-	success := anObject!
-
-success
-	
-	^success!
-
-exception: anError
-	
-	exception := anError! !
-
-
-!TSizedObject methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-size: anInteger
-	
-	size := anInteger!
-
-size
-	
-	^size ifNil: [0]! !
-
-
-!TList methodsFor: 'accessing' stamp: ' 31/10/16 08:42'!
-
-elemType: anInteger
-	
-	elemType := anInteger!
-
-elemType
-	
-	^elemType ifNil: [TType stop]! !
-
-
-!TMap methodsFor: 'accessing' stamp: ' 31/10/16 08:42'!
-
-keyType
-	
-	^keyType ifNil: [TType stop]!
-
-valueType
-	
-	^valueType ifNil: [TType stop]!
-
-keyType: anInteger
-	
-	keyType := anInteger!
-
-valueType: anInteger
-	
-	valueType := anInteger! !
-
-
-!TSocket methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-read: size
-	
-	| data |
-	[data := stream next: size.
-	data isEmpty
-		ifTrue:
-			[TTransportError signal: 'Could not read ' , size asString , ' bytes'].
-	^data]
-		on: ConnectionClosed
-		do: [TTransportClosedError signal]!
-
-host: aString
-	
-	host := aString!
-
-write: aCollection
-	
-	[stream nextPutAll: aCollection]
-		on: ConnectionClosed
-		do: [TTransportClosedError signal]!
-
-close
-	
-	self isOpen ifTrue: [stream close]!
-
-socketStream
-	
-	^Smalltalk
-		at: #FastSocketStream
-		ifAbsent: [SocketStream]!
-
-isOpen
-	
-	^stream isNil not
-		and: [stream socket isConnected]
-		and: [stream socket isOtherEndClosed not]!
-
-open
-	
-	stream := self connect!
-
-flush
-	
-	stream flush!
-
-port: anInteger
-	
-	port := anInteger!
-
-connect
-	
-	^(self socketStream
-		openConnectionToHost: (NetNameResolver addressForName: host)
-		port: port)
-		timeout: 180;
-		binary;
-		yourself! !
-
-
-!TStruct methodsFor: 'accessing' stamp: ' 31/10/16 08:42'!
-
-name: aString
-	
-	name := aString!
-
-name
-	
-	^name! !
-
-
-!TTransport methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-flush
-	
-	self subclassResponsibility!
-
-read: anInteger
-	
-	self subclassResponsibility!
-
-write: aString
-	
-	self subclassResponsibility!
-
-close
-	
-	self subclassResponsibility!
-
-readAll: anInteger
-	
-	^String new writeStream
-		ifNotNil:
-			[:str | 
-			[str size < anInteger]
-				whileTrue: [str nextPutAll: (self read: anInteger - str size)]]!
-
-isOpen
-	
-	self subclassResponsibility!
-
-open
-	
-	self subclassResponsibility! !
-
-
-!TType class methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-bool
-	
-	^2!
-
-string
-	
-	^11!
-
-i16
-	
-	^6!
-
-nameOf: aTypeCode
-	
-	self typeMap do: [:each | each second = aTypeCode ifTrue: [^each first]].
-	^nil!
-
-codeOf: aTypeName
-	
-	self typeMap do: [:each | each first = aTypeName ifTrue: [^each second]].
-	^nil!
-
-i32
-	
-	^8!
-
-stop
-	
-	^0!
-
-typeMap
-	
-	^#(#(#bool 2) #(#byte 3) #(#double 4) #(#i16 6) #(#i32 8) #(#i64 10) #(#list 15) #(#map 13) #(#set 15) #(#stop 0) #(#string 11) #(#struct 12) #(#void 1))!
-
-struct
-	
-	^12!
-
-i64
-	
-	^10!
-
-map
-	
-	^13!
-
-void
-	
-	^1!
-
-double
-	
-	^4!
-
-set
-	
-	^14!
-
-list
-	
-	^15!
-
-byte
-	
-	^3! !
-
-
-!TError class methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-signalWithCode: anInteger
-	
-	(self new)
-		code: anInteger;
-		signal! !
-
-
-!TError methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-code
-	
-	^code!
-
-code: anInteger
-	
-	code := anInteger! !
-
-
-!TProtocolError class methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-unknown
-	
-	^0!
-
-invalidData
-	
-	^1!
-
-negativeSize
-	
-	^2!
-
-badVersion
-	
-	^4!
-
-sizeLimit
-	
-	^3! !
-
-
-!TClient class methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-binaryOnHost: aString port: anInteger
-	
-	| sock |
-	sock := (TSocket new)
-		host: aString;
-		port: anInteger;
-		open;
-		yourself.
-	^(self new)
-		inProtocol: (TBinaryProtocol new transport: sock);
-		yourself! !
-
-
-!TClient methodsFor: 'as yet unclassified' stamp: ' 31/10/16 08:42'!
-
-inProtocol: aProtocol
-	
-	iprot := aProtocol.
-	oprot ifNil: [oprot := aProtocol]!
-
-validateRemoteMessage: aMsg
-	
-	remoteSeqid
-		ifNil: [remoteSeqid := aMsg seqid]
-		ifNotNil:
-			[remoteSeqid + 1 = aMsg seqid
-				ifFalse:
-					[TProtocolError
-						signal:
-							'Bad seqid: ' , aMsg seqid asString , '; wanted: ' , remoteSeqid asString].
-			remoteSeqid := aMsg seqid]!
-
-outProtocol: aProtocol
-	
-	oprot := aProtocol!
-
-nextSeqid
-	
-	^seqid
-		ifNil: [seqid := 0]
-		ifNotNil: [seqid := seqid + 1]! !
-
-
-!TField methodsFor: 'accessing' stamp: ' 31/10/16 08:42'!
-
-id: anInteger
-	
-	id := anInteger!
-
-name: anObject
-	
-	name := anObject!
-
-name
-	
-	^name ifNil: ['']!
-
-type
-	
-	^type ifNil: [TType stop]!
-
-id
-	
-	^id ifNil: [0]!
-
-type: anInteger
-	
-	type := anInteger! !
+<body package="Thrift" selector="validateRemoteMessage:">validateRemoteMessage: aMsg		remoteSeqid		ifNil: [remoteSeqid := aMsg seqid]		ifNotNil:			[remoteSeqid + 1 = aMsg seqid				ifFalse:					[TProtocolError						signal:							'Bad seqid: ' , aMsg seqid asString , '; wanted: ' , remoteSeqid asString].			remoteSeqid := aMsg seqid]</body>
 
+<body package="Thrift" selector="outProtocol:">outProtocol: aProtocol		oprot := aProtocol</body>
+
+<body package="Thrift" selector="nextSeqid">nextSeqid		^seqid		ifNil: [seqid := 0]		ifNotNil: [seqid := seqid + 1]</body>
+</methods>
+
+
+<methods>
+<class-id>TField</class-id> <category>accessing</category>
+
+<body package="Thrift" selector="id:">id: anInteger		id := anInteger</body>
+
+<body package="Thrift" selector="name:">name: anObject		name := anObject</body>
+
+<body package="Thrift" selector="name">name		^name ifNil: ['']</body>
+
+<body package="Thrift" selector="type">type		^type ifNil: [TType stop]</body>
+
+<body package="Thrift" selector="id">id		^id ifNil: [0]</body>
+
+<body package="Thrift" selector="type:">type: anInteger		type := anInteger</body>
+</methods>
+
+
+<methods>
+<class-id>TMessage</class-id> <category>accessing</category>
+
+<body package="Thrift" selector="seqid">seqid		^seqid ifNil: [0]</body>
+
+<body package="Thrift" selector="type">type		^type ifNil: [0]</body>
+
+<body package="Thrift" selector="type:">type: anInteger		type := anInteger</body>
+
+<body package="Thrift" selector="seqid:">seqid: anInteger		seqid := anInteger</body>
+
+<body package="Thrift" selector="name:">name: aString		name := aString</body>
+
+<body package="Thrift" selector="name">name		^name ifNil: ['']</body>
+</methods>
+
+
+<methods>
+<class-id>TCallMessage</class-id> <category>as yet unclassified</category>
+
+<body package="Thrift" selector="type">type		^1</body>
+</methods>
+
+
+<methods>
+<class-id>TProtocol</class-id> <category>writing</category>
+
+<body package="Thrift" selector="writeMapBegin:">writeMapBegin: aMap</body>
+
+<body package="Thrift" selector="writeDouble:">writeDouble: aFloat</body>
+
+<body package="Thrift" selector="writeSetBegin:">writeSetBegin: aSet</body>
+
+<body package="Thrift" selector="writeStructEnd">writeStructEnd</body>
+
+<body package="Thrift" selector="writeString:">writeString: aString</body>
+
+<body package="Thrift" selector="writeListBegin:">writeListBegin: aList</body>
+
+<body package="Thrift" selector="writeMessageEnd">writeMessageEnd</body>
+
+<body package="Thrift" selector="writeListEnd">writeListEnd</body>
+
+<body package="Thrift" selector="writeBool:">writeBool: aBool</body>
+
+<body package="Thrift" selector="writeByte:">writeByte: aByte</body>
+
+<body package="Thrift" selector="writeSetEnd">writeSetEnd</body>
+
+<body package="Thrift" selector="writeMessageBegin">writeMessageBegin</body>
+
+<body package="Thrift" selector="writeFieldEnd">writeFieldEnd</body>
+
+<body package="Thrift" selector="writeI16:">writeI16: i16</body>
+
+<body package="Thrift" selector="writeFieldStop">writeFieldStop</body>
+
+<body package="Thrift" selector="writeFieldBegin:">writeFieldBegin: aField</body>
+
+<body package="Thrift" selector="writeI32:">writeI32: i32</body>
+
+<body package="Thrift" selector="writeStructBegin:">writeStructBegin: aStruct</body>
+
+<body package="Thrift" selector="writeMapEnd">writeMapEnd</body>
+
+<body package="Thrift" selector="writeI64:">writeI64: i64</body>
+</methods>
+
+<methods>
+<class-id>TProtocol</class-id> <category>as yet unclassified</category>
+
+<body package="Thrift" selector="transport:">transport: aTransport		transport := aTransport</body>
+
+<body package="Thrift" selector="transport">transport		^transport</body>
+</methods>
+
+<methods>
+<class-id>TProtocol</class-id> <category>reading</category>
+
+<body package="Thrift" selector="readFieldBegin">readFieldBegin</body>
+
+<body package="Thrift" selector="readSetEnd">readSetEnd</body>
+
+<body package="Thrift" selector="readDouble">readDouble</body>
+
+<body package="Thrift" selector="readMapEnd">readMapEnd</body>
+
+<body package="Thrift" selector="readByte">readByte</body>
+
+<body package="Thrift" selector="readString">readString</body>
+
+<body package="Thrift" selector="readMessageBegin">readMessageBegin</body>
+
+<body package="Thrift" selector="readFieldEnd">readFieldEnd</body>
+
+<body package="Thrift" selector="readI32">readI32</body>
+
+<body package="Thrift" selector="readMapBegin">readMapBegin</body>
+
+<body package="Thrift" selector="skip:">skip: aType		aType = TType stop ifTrue: [^self].	aType = TType bool ifTrue: [^self readBool].	aType = TType byte ifTrue: [^self readByte].	aType = TType i16 ifTrue: [^self readI16].	aType = TType i32 ifTrue: [^self readI32].	aType = TType i64 ifTrue: [^self readI64].	aType = TType string ifTrue: [^self readString].	aType = TType double ifTrue: [^self readDouble].	aType = TType struct		ifTrue:			[| field |			self readStructBegin.			[(field := self readFieldBegin) type = TType stop]				whileFalse:					[self skip: field type.					self readFieldEnd].			^self readStructEnd].	aType = TType map		ifTrue:			[| map |			map := self readMapBegin.			map size				timesRepeat:					[self skip: map keyType.					self skip: map valueType].			^self readMapEnd].	aType = TType list		ifTrue:			[| list |			list := self readListBegin.			list size timesRepeat: [self skip: list elemType].			^self readListEnd].	aType = TType set		ifTrue:			[| set |			set := self readSetBegin.			set size timesRepeat: [self skip: set elemType].			^self readSetEnd].	self error: 'Unknown type'</body>
+
+<body package="Thrift" selector="readBool">readBool</body>
+
+<body package="Thrift" selector="readMessageEnd">readMessageEnd</body>
+
+<body package="Thrift" selector="readStructEnd">readStructEnd</body>
+
+<body package="Thrift" selector="readI64">readI64</body>
+
+<body package="Thrift" selector="readSimpleType:">readSimpleType: aType		aType = TType bool ifTrue: [^self readBool].	aType = TType byte ifTrue: [^self readByte].	aType = TType double ifTrue: [^self readDouble].	aType = TType i16 ifTrue: [^self readI16].	aType = TType i32 ifTrue: [^self readI32].	aType = TType i64 ifTrue: [^self readI64].	aType = TType list ifTrue: [^self readBool]</body>
+
+<body package="Thrift" selector="readListEnd">readListEnd</body>
+
+<body package="Thrift" selector="readSetBegin">readSetBegin</body>
+
+<body package="Thrift" selector="readStructBegin">readStructBegin</body>
+
+<body package="Thrift" selector="readListBegin">readListBegin</body>
+
+<body package="Thrift" selector="readI16">readI16</body>
+</methods>
+
+
+<methods>
+<class-id>TBinaryProtocol</class-id> <category>writing</category>
+
+<body package="Thrift" selector="writeI64:">writeI64: i64		self writeInt: i64 size: 8</body>
+
+<body package="Thrift" selector="writeMapBegin:">writeMapBegin: aMap		self		writeByte: aMap keyType;		writeByte: aMap valueType;		writeI32: aMap size</body>
+
+<body package="Thrift" selector="writeDouble:">writeDouble: aDouble		self		writeI32: (aDouble basicAt: 1);		writeI32: (aDouble basicAt: 2)</body>
+
+<body package="Thrift" selector="writeMessageBegin:">writeMessageBegin: msg		self		writeI32: (self version1 bitOr: msg type);		writeString: msg name;		writeI32: msg seqid</body>
+
+<body package="Thrift" selector="writeSetBegin:">writeSetBegin: aSet		self		writeByte: aSet elemType;		writeI32: aSet size</body>
+
+<body package="Thrift" selector="writeString:">writeString: aString		self		writeI32: aString size;		write: aString</body>
+
+<body package="Thrift" selector="writeListBegin:">writeListBegin: aList		self		writeByte: aList elemType;		writeI32: aList size</body>
+
+<body package="Thrift" selector="writeBool:">writeBool: bool		bool		ifTrue: [self writeByte: 1]		ifFalse: [self writeByte: 0]</body>
+
+<body package="Thrift" selector="write:">write: aString		transport write: aString</body>
+
+<body package="Thrift" selector="writeByte:">writeByte: aNumber		aNumber &gt; 16rFF ifTrue: [TError signal: 'writeByte too big'].	transport write: (Array with: aNumber)</body>
+
+<body package="Thrift" selector="writeI16:">writeI16: i16		self writeInt: i16 size: 2</body>
+
+<body package="Thrift" selector="writeFieldStop">writeFieldStop		self writeByte: TType stop</body>
+
+<body package="Thrift" selector="writeInt:size:">writeInt: val size: size		1		to: size		do:			[:n | self writeByte: ((val bitShift: (size negated + n) * 8) bitAnd: 16rFF)]</body>
+
+<body package="Thrift" selector="writeFieldBegin:">writeFieldBegin: aField		self writeByte: aField type.	self writeI16: aField id</body>
+
+<body package="Thrift" selector="writeI32:">writeI32: i32		self writeInt: i32 size: 4</body>
+
+<body package="Thrift" selector="writeField:">writeField: aField		self		writeByte: aField type;		writeI16: aField id</body>
+</methods>
+
+<methods>
+<class-id>TBinaryProtocol</class-id> <category>as yet unclassified</category>
+
+<body package="Thrift" selector="versionMask">versionMask		^16rFFFF0000</body>
+
+<body package="Thrift" selector="version1">version1		^16r80010000</body>
+</methods>
+
+<methods>
+<class-id>TBinaryProtocol</class-id> <category>reading</category>
+
+<body package="Thrift" selector="intFromByteArray:">intFromByteArray: buf		| vals |	vals := Array new: buf size.	1		to: buf size		do:			[:n | 			vals				at: n				put: ((buf at: n) bitShift: (buf size - n) * 8)].	^vals sum</body>
+
+<body package="Thrift" selector="readRawInt:">readRawInt: size		^self intFromByteArray: (transport read: size)</body>
+
+<body package="Thrift" selector="readFieldBegin">readFieldBegin		| field |	field := TField new type: self readByte.	^field type = TType stop		ifTrue: [field]		ifFalse:			[field				id: self readI16;				yourself]</body>
+
+<body package="Thrift" selector="readDouble">readDouble		| val |	val := Float new: 2.	^val		basicAt: 1			put: (self readRawInt: 4);		basicAt: 2			put: (self readRawInt: 4);		yourself</body>
+
+<body package="Thrift" selector="readString">readString		| sz |	sz := self readI32.	^sz &gt; 0		ifTrue: [(transport read: sz) asString]		ifFalse: ['']</body>
+
+<body package="Thrift" selector="readByte">readByte		^(self transport read: 1) first</body>
+
+<body package="Thrift" selector="readMessageBegin">readMessageBegin		| version |	version := self readI32.	(version bitAnd: self versionMask) = self version1		ifFalse: [TProtocolError signalWithCode: TProtocolError badVersion].	^(TMessage new)		type: (version bitAnd: 16r000000FF);		name: self readString;		seqid: self readI32</body>
+
+<body package="Thrift" selector="readI32">readI32		^self readInt: 4</body>
+
+<body package="Thrift" selector="readInt:">readInt: size		| buf val |	buf := transport read: size.	val := self intFromByteArray: buf.	^buf first &gt; 16r7F		ifTrue: [self unsignedInt: val size: size]		ifFalse: [val]</body>
+
+<body package="Thrift" selector="readMapBegin">readMapBegin		^(TMap new)		keyType: self readByte;		valueType: self readByte;		size: self readI32</body>
+
+<body package="Thrift" selector="readBool">readBool		^self readByte isZero not</body>
+
+<body package="Thrift" selector="unsignedInt:size:">unsignedInt: val size: size		^0 - (val - 1 bitXor: (2 raisedTo: size * 8) - 1)</body>
+
+<body package="Thrift" selector="readI64">readI64		^self readInt: 8</body>
+
+<body package="Thrift" selector="readSetBegin">readSetBegin	"element type, size"		^(TSet new)		elemType: self readByte;		size: self readI32</body>
+
+<body package="Thrift" selector="readListBegin">readListBegin		^(TList new)		elemType: self readByte;		size: self readI32</body>
+
+<body package="Thrift" selector="readI16">readI16		^self readInt: 2</body>
+</methods>
+
+
+<methods>
+<class-id>TResult</class-id> <category>as yet unclassified</category>
+
+<body package="Thrift" selector="exception">exception		^exception</body>
+
+<body package="Thrift" selector="success:">success: anObject		success := anObject</body>
+
+<body package="Thrift" selector="success">success		^success</body>
+
+<body package="Thrift" selector="exception:">exception: anError		exception := anError</body>
+</methods>
+
+
+<methods>
+<class-id>TList</class-id> <category>accessing</category>
+
+<body package="Thrift" selector="elemType:">elemType: anInteger		elemType := anInteger</body>
+
+<body package="Thrift" selector="elemType">elemType		^elemType ifNil: [TType stop]</body>
+</methods>
+
+
+
+</st-source>
