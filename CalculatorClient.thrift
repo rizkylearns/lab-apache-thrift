@@ -81,7 +81,7 @@ typedef i32 MyInteger
  * types and structs are specified using JSON notation.
  */
 const i32 INT32CONSTANT = 9853
-const map<string,string> MAPCONSTANT = {'hello':'world', 'goodnight':'moon'}
+const map<string,string> MAPCONSTANT = {"hello":"world", "goodnight":"moon"}
 
 /**
  * You can define enums, which are just 32 bit integers. Values are optional

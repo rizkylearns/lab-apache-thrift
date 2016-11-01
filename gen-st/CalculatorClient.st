@@ -3,42 +3,42 @@
 DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
 '!
 
-Object subclass: #Sample
+Object subclass: #CalculatorClient
   instanceVariableNames: ''
   classVariableNames: ''
   poolDictionaries: ''
-  category: 'Generated-Sample'!
+  category: 'Generated-CalculatorClient'!
 
-Sample class
+CalculatorClient class
 	instanceVariableNames: 'constants enums'!
 
-!Sample class methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient class methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 enums: anObject
     enums := anObject! !
 
-!Sample class methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient class methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 enums
     ^ enums! !
 
-!Sample class methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient class methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 constants: anObject
     constants := anObject! !
 
-!Sample class methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient class methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 constants
     ^ constants! !
 
-Sample enums: Dictionary new!
-Sample constants: Dictionary new!
+CalculatorClient enums: Dictionary new!
+CalculatorClient constants: Dictionary new!
 
-Sample enums at: 'Operation' put: [(Dictionary new 
+CalculatorClient enums at: 'Operation' put: [(Dictionary new 
 	at: 'ADD' put: 1;
 	at: 'SUBTRACT' put: 2;
 	at: 'MULTIPLY' put: 3;
 	at: 'DIVIDE' put: 4;
 	yourself)]!
 
-Sample enums at: 'Operation' put: [(Dictionary new 
+CalculatorClient enums at: 'Operation' put: [(Dictionary new 
 	at: 'ADD' put: 1;
 	at: 'SUBTRACT' put: 2;
 	at: 'MULTIPLY' put: 3;
@@ -49,37 +49,37 @@ Object subclass: #Work
 	instanceVariableNames: 'num1 num2 op comment'
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'Generated-Sample'!
+	category: 'Generated-CalculatorClient'!
 
-!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 num1: anI32
     num1 := anI32! !
 
-!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 num1
     ^ num1! !
 
-!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 num2: anI32
     num2 := anI32! !
 
-!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 num2
     ^ num2! !
 
-!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 op: anOperation
     op := anOperation! !
 
-!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 op
     ^ op! !
 
-!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 comment: aString
     comment := aString! !
 
-!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!Work methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 comment
     ^ comment! !
 
@@ -88,46 +88,46 @@ Error subclass: #InvalidOperation
 	instanceVariableNames: 'whatOp why'
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'Generated-Sample'!
+	category: 'Generated-CalculatorClient'!
 
-!InvalidOperation methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!InvalidOperation methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 whatOp: anI32
     whatOp := anI32! !
 
-!InvalidOperation methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!InvalidOperation methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 whatOp
     ^ whatOp! !
 
-!InvalidOperation methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!InvalidOperation methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 why: aString
     why := aString! !
 
-!InvalidOperation methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!InvalidOperation methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 why
     ^ why! !
 
 
-Sample constants at: 'INT32CONSTANT' put: [9853]!
+CalculatorClient constants at: 'INT32CONSTANT' put: [9853]!
 
-Sample constants at: 'MAPCONSTANT' put: [(Dictionary new
-            at: 'hello' put: 'world';
-            at: 'goodnight' put: 'moon';
+CalculatorClient constants at: 'MAPCONSTANT' put: [(Dictionary new
+            at: "hello" put: "world";
+            at: "goodnight" put: "moon";
             yourself)]!
 
 SharedServiceClient subclass: #CalculatorClient
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
-	category: 'Generated-Sample'!
+	category: 'Generated-CalculatorClient'!
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 ping
     ""
     self sendPing.
     ^ self recvPing success 
 ! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 sendPing
     oprot writeMessageBegin:
       (TCallMessage new
@@ -137,7 +137,7 @@ sendPing
     oprot writeFieldStop; writeStructEnd; writeMessageEnd.
     oprot transport flush! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 recvPing
     | f msg res | 
     msg := oprot readMessageBegin.
@@ -158,14 +158,14 @@ recvPing
     res exception ifNotNil: [res exception signal].
     ^ res! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 addNum1: num1 num2: num2
     "num1: i32, num2: i32"
     self sendAddNum1: num1 num2: num2.
     ^ self recvAdd success 
 ! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 sendAddNum1: num1 num2: num2
     oprot writeMessageBegin:
       (TCallMessage new
@@ -181,7 +181,7 @@ sendAddNum1: num1 num2: num2
     oprot writeFieldStop; writeStructEnd; writeMessageEnd.
     oprot transport flush! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 recvAdd
     | f msg res | 
     msg := oprot readMessageBegin.
@@ -202,14 +202,14 @@ recvAdd
     res exception ifNotNil: [res exception signal].
     ^ res! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 calculateLogid: logid w: w
     "logid: i32, w: Work"
     self sendCalculateLogid: logid w: w.
     ^ self recvCalculate success 
 ! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 sendCalculateLogid: logid w: w
     oprot writeMessageBegin:
       (TCallMessage new
@@ -239,7 +239,7 @@ sendCalculateLogid: logid w: w
     oprot writeFieldStop; writeStructEnd; writeMessageEnd.
     oprot transport flush! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 recvCalculate
     | f msg res | 
     msg := oprot readMessageBegin.
@@ -276,13 +276,13 @@ recvCalculate
     res exception ifNotNil: [res exception signal].
     ^ res! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 zip
     ""
     self sendZip.
 ! !
 
-!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 10/30/2016 21:58'!
+!CalculatorClient methodsFor: 'as yet uncategorized' stamp: 'thrift 11/01/2016 13:26'!
 sendZip
     oprot writeMessageBegin:
       (TCallMessage new
@@ -292,5 +292,5 @@ sendZip
     oprot writeFieldStop; writeStructEnd; writeMessageEnd.
     oprot transport flush! !
 
-Sample enums keysAndValuesDo: [:k :v | Sample enums at: k put: v value].!
-Sample constants keysAndValuesDo: [:k :v | Sample constants at: k put: v value].!
+CalculatorClient enums keysAndValuesDo: [:k :v | CalculatorClient enums at: k put: v value].!
+CalculatorClient constants keysAndValuesDo: [:k :v | CalculatorClient constants at: k put: v value].!
