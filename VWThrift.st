@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks®, 7.9.1 of 18 October 2012 on 1 November 2016 at 8:51:26 AM</time-stamp>
+<time-stamp>From VisualWorks®, 7.9.1 of 18 October 2012 on 2 November 2016 at 11:24:48 AM</time-stamp>
 
 
 <component-created>
@@ -14,12 +14,152 @@
 </component-created>
 
 <class>
+<name>TStruct</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>name </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TTransport</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Transport</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TType</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TError</name>
+<environment>Smalltalk</environment>
+<super>Core.Error</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>code </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TProtocolError</name>
+<environment>Smalltalk</environment>
+<super>TError</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TTransportError</name>
+<environment>Smalltalk</environment>
+<super>TError</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Transport</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TTransportClosedError</name>
+<environment>Smalltalk</environment>
+<super>TTransportError</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Transport</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TField</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>name type id </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Thrift-Protocol</category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<class>
+<name>TProtocolHandler</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>protocol nextSeq </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category></category>
+<attributes>
+<package>Thrift</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>TProtocolHandler</class-id>
+<body>@struct,	first thriftField id = 0, normal	first thriftField id = 1, exception, then read another struct Message	Struct [ id = 0 ]		[Field type = TType?]	Exception [ id = 1 ]		StructreadMessageBegin	readStructBegin		readFieldBegin			while field type &lt;&gt; TType stop				if id = 0, TResult new success: protocol readI32				else if id = 1,					readStructBegin, readFieldBegin, 						InvalidOperationException whatOp					readFieldEnd, readStructEnd				else if id = 2, 					readStructBegin, readFieldBegin,						InvalidOperationException why					readFieldEnd, readStructEnd				else skip field id		readFieldEnd	readStructEndreadMessageEnd</body>
+</comment>
+
+<class>
 <name>TMessage</name>
 <environment>Smalltalk</environment>
 <super>Core.Object</super>
 <private>false</private>
 <indexed-type>none</indexed-type>
-<inst-vars>name seqid type </inst-vars>
+<inst-vars>name seqid type fields </inst-vars>
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category>Thrift-Protocol</category>
@@ -193,138 +333,87 @@
 </attributes>
 </class>
 
-<class>
-<name>TStruct</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
+<shared-variable>
+<name>TypeToReadMapping</name>
+<environment>TProtocolHandler</environment>
 <private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>name </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Thrift-Protocol</category>
+<constant>false</constant>
+<category>As yet unclassified</category>
 <attributes>
 <package>Thrift</package>
 </attributes>
-</class>
+</shared-variable>
 
-<class>
-<name>TTransport</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Thrift-Transport</category>
-<attributes>
-<package>Thrift</package>
-</attributes>
-</class>
 
-<class>
-<name>TType</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Thrift</category>
-<attributes>
-<package>Thrift</package>
-</attributes>
-</class>
 
-<class>
-<name>TError</name>
-<environment>Smalltalk</environment>
-<super>Core.Error</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>code </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Thrift</category>
-<attributes>
-<package>Thrift</package>
-</attributes>
-</class>
+<methods>
+<class-id>TProtocolHandler class</class-id> <category>mappings</category>
 
-<class>
-<name>TProtocolError</name>
-<environment>Smalltalk</environment>
-<super>TError</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Thrift-Protocol</category>
-<attributes>
-<package>Thrift</package>
-</attributes>
-</class>
+<body package="Thrift" selector="typeToReadMapping">typeToReadMapping	^TypeToReadMapping ifNil: [		TypeToReadMapping := self initializeTypeToReadMapping 	]</body>
 
-<class>
-<name>TTransportError</name>
-<environment>Smalltalk</environment>
-<super>TError</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Thrift-Transport</category>
-<attributes>
-<package>Thrift</package>
-</attributes>
-</class>
+<body package="Thrift" selector="initializeTypeToReadMapping">initializeTypeToReadMapping	TypeToReadMapping := Dictionary new.	TypeToReadMapping		at: TType stop put: [ :protHandler | nil ];		at: TType bool put: [ :protHandler |			protHandler protocol readBool		];		at: TType byte put: [ :protHandler |			protHandler protocol readByte		];		at: TType double put: [ :protHandler |			protHandler protocol readDouble		];		at: TType i16 put: [ :protHandler |			protHandler protocol readI16		];		at: TType i32 put: [ :protHandler |			protHandler protocol readI32		];		at: TType i64 put: [ :protHandler |			protHandler protocol readI64		];		at: TType string put: [ :protHandler |			protHandler protocol readString		];				yourself.		TypeToReadMapping at: TType struct put: [ :protHandler |			| fields |			protHandler protocol readStructBegin.			fields := protHandler readFields.			protHandler protocol readStructEnd.			fields.		].		TypeToReadMapping at: TType map put: [ :protHandler |			| tmap key value fields |			tmap := protHandler protocol readMapBegin.			fields := OrderedCollection new.			tmap size timesRepeat: [				key := (protHandler class typeToReadMapping at: tmap keyType ifAbsent: [ nil ]) ifNotNil: [ :handler |					handler value: protHandler.				].				value := (protHandler class typeToReadMapping at: tmap valueType ifAbsent: [ nil ]) ifNotNil: [ :handler |					handler value: protHandler.				].				fields add: (key -&gt; value)			].			protHandler protocol readMapEnd.				].		TypeToReadMapping at: TType set put: [ :protHandler |			| tset fields |			tset := protHandler protocol readSetBegin.			fields := OrderedCollection new.			tset size timesRepeat: [				((protHandler class typeToReadMapping at: tset elemType ifAbsent: [ nil ]) ifNotNil: [ :handler |					handler value: protHandler.				]) ifNotNil: [ :field | fields add: field ]			].			protHandler protocol readSetEnd.				].		TypeToReadMapping at: TType list put: [ :protHandler |			| tset fields |			tset := protHandler protocol readListBegin.			fields := OrderedCollection new.			tset size timesRepeat: [				((protHandler class typeToReadMapping at: tset elemType ifAbsent: [ nil ]) ifNotNil: [ :handler |					handler value: protHandler.				]) ifNotNil: [ :field | fields add: field ]			].			protHandler protocol readListEnd.				].		TypeToReadMapping at: TType void put: [ :protHandler |			nil.		].	^TypeToReadMapping</body>
+</methods>
 
-<class>
-<name>TTransportClosedError</name>
-<environment>Smalltalk</environment>
-<super>TTransportError</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Thrift-Transport</category>
-<attributes>
-<package>Thrift</package>
-</attributes>
-</class>
+<methods>
+<class-id>TProtocolHandler class</class-id> <category>instance creation</category>
 
-<class>
-<name>TField</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>name type id </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Thrift-Protocol</category>
-<attributes>
-<package>Thrift</package>
-</attributes>
-</class>
+<body package="Thrift" selector="for:">for: aTProtocol	^(self new)		protocol: aTProtocol;		yourself</body>
+</methods>
+
+
+<methods>
+<class-id>TProtocolHandler</class-id> <category>writing</category>
+
+<body package="Thrift" selector="nextSeq">nextSeq	^nextSeq ifNil: [ nextSeq := 1 ] ifNotNil: [ nextSeq := nextSeq + 1 ]</body>
+
+<body package="Thrift" selector="writeDumbMessage">writeDumbMessage	self protocol writeMessageBegin: (TCallMessage new		name: ''; seqid: self nextSeq; yourself).	self protocol writeStructBegin: (TStruct new name: '').	self protocol writeFieldBegin: (TField new name: ''; type: TType i32; id: 0).	self protocol writeI32: 0.	self protocol writeFieldEnd.	self protocol writeStructEnd.	self protocol writeFieldStop.	self protocol writeMessageEnd</body>
+
+<body package="Thrift" selector="writeEmptyMessage">writeEmptyMessage	self protocol writeMessageBegin: (TCallMessage new		name: ''; seqid: self nextSeq; yourself).	self protocol writeFieldStop.	self protocol writeMessageEnd</body>
+
+<body package="Thrift" selector="writeDumbMessageNamed:">writeDumbMessageNamed: aName	self protocol writeMessageBegin: (TCallMessage new		name: aName; seqid: self nextSeq; yourself).	self protocol writeStructBegin: (TStruct new).	self protocol writeFieldBegin: (TField new name: ''; type: TType i32; id: 0).	self protocol writeI32: 0.	self protocol writeFieldEnd.	self protocol writeFieldStop.	self protocol writeStructEnd.	self protocol writeMessageEnd</body>
+
+<body package="Thrift" selector="writeMessageNamed:">writeMessageNamed: aName	| tmessage |	tmessage := self protocol writeMessageBegin: (TCallMessage new		name: aName; seqid: self nextSeq; yourself).	self protocol writeStructBegin: (TStruct new).	self writeFieldsFor: tmessage.	self protocol writeFieldStop.	self protocol writeStructEnd.	self protocol writeMessageEnd</body>
+
+<body package="Thrift" selector="writeEmptyMessageInto:">writeEmptyMessageInto: aStream	self protocol writeMessageBegin: (TCallMessage new		name: ''; seqid: self nextSeq; yourself).	self protocol writeMessageEnd</body>
+</methods>
+
+<methods>
+<class-id>TProtocolHandler</class-id> <category>reading</category>
+
+<body package="Thrift" selector="readFields">readFields	"collect fields until I find field type == TType stop"	| nextField fields |	fields := OrderedCollection new.		[ 		nextField := self readFieldInto: fields. 		nextField key type = TType stop	] whileFalse.	^fields.</body>
+
+<body package="Thrift" selector="read">read	| message |	message := self protocol readMessageBegin.	message fields: self readFields.	self protocol readMessageEnd.	^message.</body>
+
+<body package="Thrift" selector="readFieldInto:">readFieldInto: aFieldCollection	| field |	field := aFieldCollection add: ((self protocol readFieldBegin) -&gt; nil).	(self class typeToReadMapping at: field key type ifAbsent: [ nil ]) ifNotNil: [ :readBlock |		field value: (readBlock value: self).		field value ifNil: [			aFieldCollection remove: field.		].	].	self protocol readFieldEnd.	^field</body>
+</methods>
+
+<methods>
+<class-id>TProtocolHandler</class-id> <category>private</category>
+
+<body package="Thrift" selector="protocol:">protocol: aTProtocol	protocol := aTProtocol</body>
+
+<body package="Thrift" selector="writeFieldsFor:">writeFieldsFor: aTMessage	"use my protocol to write fields for aTMessage.	start with protocol writeFieldBegin: (TField new name: 'aName'; type: TType? id: 0++).	continue with protocol write??	end with protocol writeFieldEnd"	(aTMessage name = 'add') ifTrue: [		"Do addition"	].</body>
+
+<body package="Thrift" selector="protocol">protocol	^protocol</body>
+</methods>
+
 
 <methods>
 <class-id>TMessage</class-id> <category>accessing</category>
 
 <body package="Thrift" selector="type">type		^type ifNil: [0]</body>
 
-<body package="Thrift" selector="type:">type: anInteger		type := anInteger</body>
-
 <body package="Thrift" selector="seqid">seqid		^seqid ifNil: [0]</body>
 
-<body package="Thrift" selector="seqid:">seqid: anInteger		seqid := anInteger</body>
+<body package="Thrift" selector="fields">fields	^fields</body>
+
+<body package="Thrift" selector="fields:">fields: aField	fields := aField.</body>
+
+<body package="Thrift" selector="type:">type: anInteger		type := anInteger</body>
 
 <body package="Thrift" selector="name:">name: aString		name := aString</body>
+
+<body package="Thrift" selector="seqid:">seqid: anInteger		seqid := anInteger</body>
 
 <body package="Thrift" selector="name">name		^name ifNil: ['']</body>
 </methods>
@@ -340,45 +429,45 @@
 <methods>
 <class-id>TProtocol</class-id> <category>writing</category>
 
-<body package="Thrift" selector="writeDouble:">writeDouble: aFloat</body>
-
-<body package="Thrift" selector="writeFieldStop">writeFieldStop</body>
-
-<body package="Thrift" selector="writeStructBegin:">writeStructBegin: aStruct</body>
-
-<body package="Thrift" selector="writeMessageBegin">writeMessageBegin</body>
-
-<body package="Thrift" selector="writeBool:">writeBool: aBool</body>
-
-<body package="Thrift" selector="writeMapEnd">writeMapEnd</body>
-
-<body package="Thrift" selector="writeListBegin:">writeListBegin: aList</body>
-
-<body package="Thrift" selector="writeFieldBegin:">writeFieldBegin: aField</body>
-
-<body package="Thrift" selector="writeSetBegin:">writeSetBegin: aSet</body>
-
-<body package="Thrift" selector="writeFieldEnd">writeFieldEnd</body>
-
-<body package="Thrift" selector="writeI64:">writeI64: i64</body>
-
-<body package="Thrift" selector="writeMessageEnd">writeMessageEnd</body>
-
-<body package="Thrift" selector="writeMapBegin:">writeMapBegin: aMap</body>
-
-<body package="Thrift" selector="writeI32:">writeI32: i32</body>
-
-<body package="Thrift" selector="writeByte:">writeByte: aByte</body>
+<body package="Thrift" selector="writeString:">writeString: aString</body>
 
 <body package="Thrift" selector="writeStructEnd">writeStructEnd</body>
 
+<body package="Thrift" selector="writeBool:">writeBool: aBool</body>
+
+<body package="Thrift" selector="writeFieldStop">writeFieldStop</body>
+
+<body package="Thrift" selector="writeFieldBegin:">writeFieldBegin: aField</body>
+
+<body package="Thrift" selector="writeI64:">writeI64: i64</body>
+
+<body package="Thrift" selector="writeListEnd">writeListEnd</body>
+
+<body package="Thrift" selector="writeI32:">writeI32: i32</body>
+
 <body package="Thrift" selector="writeI16:">writeI16: i16</body>
+
+<body package="Thrift" selector="writeMapEnd">writeMapEnd</body>
+
+<body package="Thrift" selector="writeStructBegin:">writeStructBegin: aStruct</body>
+
+<body package="Thrift" selector="writeMessageEnd">writeMessageEnd</body>
+
+<body package="Thrift" selector="writeByte:">writeByte: aByte</body>
+
+<body package="Thrift" selector="writeSetBegin:">writeSetBegin: aSet</body>
 
 <body package="Thrift" selector="writeSetEnd">writeSetEnd</body>
 
-<body package="Thrift" selector="writeString:">writeString: aString</body>
+<body package="Thrift" selector="writeMessageBegin">writeMessageBegin</body>
 
-<body package="Thrift" selector="writeListEnd">writeListEnd</body>
+<body package="Thrift" selector="writeMapBegin:">writeMapBegin: aMap</body>
+
+<body package="Thrift" selector="writeListBegin:">writeListBegin: aList</body>
+
+<body package="Thrift" selector="writeFieldEnd">writeFieldEnd</body>
+
+<body package="Thrift" selector="writeDouble:">writeDouble: aFloat</body>
 </methods>
 
 <methods>
@@ -392,84 +481,84 @@
 <methods>
 <class-id>TProtocol</class-id> <category>reading</category>
 
-<body package="Thrift" selector="readMessageBegin">readMessageBegin</body>
-
-<body package="Thrift" selector="readListEnd">readListEnd</body>
-
-<body package="Thrift" selector="readDouble">readDouble</body>
-
 <body package="Thrift" selector="readString">readString</body>
-
-<body package="Thrift" selector="readByte">readByte</body>
-
-<body package="Thrift" selector="readStructBegin">readStructBegin</body>
-
-<body package="Thrift" selector="readSetBegin">readSetBegin</body>
-
-<body package="Thrift" selector="readMessageEnd">readMessageEnd</body>
-
-<body package="Thrift" selector="skip:">skip: aType		aType = TType stop ifTrue: [^self].	aType = TType bool ifTrue: [^self readBool].	aType = TType byte ifTrue: [^self readByte].	aType = TType i16 ifTrue: [^self readI16].	aType = TType i32 ifTrue: [^self readI32].	aType = TType i64 ifTrue: [^self readI64].	aType = TType string ifTrue: [^self readString].	aType = TType double ifTrue: [^self readDouble].	aType = TType struct		ifTrue:			[| field |			self readStructBegin.			[(field := self readFieldBegin) type = TType stop]				whileFalse:					[self skip: field type.					self readFieldEnd].			^self readStructEnd].	aType = TType map		ifTrue:			[| map |			map := self readMapBegin.			map size				timesRepeat:					[self skip: map keyType.					self skip: map valueType].			^self readMapEnd].	aType = TType list		ifTrue:			[| list |			list := self readListBegin.			list size timesRepeat: [self skip: list elemType].			^self readListEnd].	aType = TType set		ifTrue:			[| set |			set := self readSetBegin.			set size timesRepeat: [self skip: set elemType].			^self readSetEnd].	self error: 'Unknown type'</body>
-
-<body package="Thrift" selector="readMapEnd">readMapEnd</body>
-
-<body package="Thrift" selector="readI64">readI64</body>
-
-<body package="Thrift" selector="readFieldEnd">readFieldEnd</body>
-
-<body package="Thrift" selector="readBool">readBool</body>
-
-<body package="Thrift" selector="readListBegin">readListBegin</body>
-
-<body package="Thrift" selector="readI32">readI32</body>
-
-<body package="Thrift" selector="readFieldBegin">readFieldBegin</body>
 
 <body package="Thrift" selector="readStructEnd">readStructEnd</body>
 
+<body package="Thrift" selector="readDouble">readDouble</body>
+
+<body package="Thrift" selector="readByte">readByte</body>
+
+<body package="Thrift" selector="readMessageBegin">readMessageBegin</body>
+
 <body package="Thrift" selector="readMapBegin">readMapBegin</body>
+
+<body package="Thrift" selector="readI32">readI32</body>
+
+<body package="Thrift" selector="readStructBegin">readStructBegin</body>
+
+<body package="Thrift" selector="skip:">skip: aType		aType = TType stop ifTrue: [^self].	aType = TType bool ifTrue: [^self readBool].	aType = TType byte ifTrue: [^self readByte].	aType = TType i16 ifTrue: [^self readI16].	aType = TType i32 ifTrue: [^self readI32].	aType = TType i64 ifTrue: [^self readI64].	aType = TType string ifTrue: [^self readString].	aType = TType double ifTrue: [^self readDouble].	aType = TType struct		ifTrue:			[| field |			self readStructBegin.			[(field := self readFieldBegin) type = TType stop]				whileFalse:					[self skip: field type.					self readFieldEnd].			^self readStructEnd].	aType = TType map		ifTrue:			[| map |			map := self readMapBegin.			map size				timesRepeat:					[self skip: map keyType.					self skip: map valueType].			^self readMapEnd].	aType = TType list		ifTrue:			[| list |			list := self readListBegin.			list size timesRepeat: [self skip: list elemType].			^self readListEnd].	aType = TType set		ifTrue:			[| set |			set := self readSetBegin.			set size timesRepeat: [self skip: set elemType].			^self readSetEnd].	self error: 'Unknown type'</body>
+
+<body package="Thrift" selector="readFieldBegin">readFieldBegin</body>
+
+<body package="Thrift" selector="readBool">readBool</body>
+
+<body package="Thrift" selector="readListEnd">readListEnd</body>
+
+<body package="Thrift" selector="readI64">readI64</body>
+
+<body package="Thrift" selector="readSimpleType:">readSimpleType: aType		aType = TType bool ifTrue: [^self readBool].	aType = TType byte ifTrue: [^self readByte].	aType = TType double ifTrue: [^self readDouble].	aType = TType i16 ifTrue: [^self readI16].	aType = TType i32 ifTrue: [^self readI32].	aType = TType i64 ifTrue: [^self readI64].	aType = TType list ifTrue: [^self readBool]</body>
+
+<body package="Thrift" selector="readSetBegin">readSetBegin</body>
+
+<body package="Thrift" selector="readMapEnd">readMapEnd</body>
+
+<body package="Thrift" selector="readFieldEnd">readFieldEnd</body>
+
+<body package="Thrift" selector="readListBegin">readListBegin</body>
+
+<body package="Thrift" selector="readMessageEnd">readMessageEnd</body>
 
 <body package="Thrift" selector="readSetEnd">readSetEnd</body>
 
 <body package="Thrift" selector="readI16">readI16</body>
-
-<body package="Thrift" selector="readSimpleType:">readSimpleType: aType		aType = TType bool ifTrue: [^self readBool].	aType = TType byte ifTrue: [^self readByte].	aType = TType double ifTrue: [^self readDouble].	aType = TType i16 ifTrue: [^self readI16].	aType = TType i32 ifTrue: [^self readI32].	aType = TType i64 ifTrue: [^self readI64].	aType = TType list ifTrue: [^self readBool]</body>
 </methods>
 
 
 <methods>
 <class-id>TBinaryProtocol</class-id> <category>writing</category>
 
-<body package="Thrift" selector="writeDouble:">writeDouble: aDouble		self		writeI32: (aDouble basicAt: 1);		writeI32: (aDouble basicAt: 2)</body>
-
-<body package="Thrift" selector="writeField:">writeField: aField		self		writeByte: aField type;		writeI16: aField id</body>
-
-<body package="Thrift" selector="writeFieldStop">writeFieldStop		self writeByte: TType stop</body>
-
-<body package="Thrift" selector="writeInt:size:">writeInt: val size: size		1		to: size		do:			[:n | self writeByte: ((val bitShift: (size negated + n) * 8) bitAnd: 16rFF)]</body>
+<body package="Thrift" selector="writeString:">writeString: aString		self		writeI32: aString size;		write: aString</body>
 
 <body package="Thrift" selector="writeBool:">writeBool: bool		bool		ifTrue: [self writeByte: 1]		ifFalse: [self writeByte: 0]</body>
 
-<body package="Thrift" selector="writeListBegin:">writeListBegin: aList		self		writeByte: aList elemType;		writeI32: aList size</body>
+<body package="Thrift" selector="writeField:">writeField: aField		self		writeByte: aField type;		writeI16: aField id</body>
 
 <body package="Thrift" selector="writeFieldBegin:">writeFieldBegin: aField		self writeByte: aField type.	self writeI16: aField id</body>
 
-<body package="Thrift" selector="write:">write: aString		transport write: aString</body>
-
-<body package="Thrift" selector="writeSetBegin:">writeSetBegin: aSet		self		writeByte: aSet elemType;		writeI32: aSet size</body>
+<body package="Thrift" selector="writeFieldStop">writeFieldStop		self writeByte: TType stop</body>
 
 <body package="Thrift" selector="writeI64:">writeI64: i64		self writeInt: i64 size: 8</body>
-
-<body package="Thrift" selector="writeMapBegin:">writeMapBegin: aMap		self		writeByte: aMap keyType;		writeByte: aMap valueType;		writeI32: aMap size</body>
-
-<body package="Thrift" selector="writeByte:">writeByte: aNumber		aNumber &gt; 16rFF ifTrue: [TError signal: 'writeByte too big'].	transport write: (Array with: aNumber)</body>
 
 <body package="Thrift" selector="writeI32:">writeI32: i32		self writeInt: i32 size: 4</body>
 
 <body package="Thrift" selector="writeI16:">writeI16: i16		self writeInt: i16 size: 2</body>
 
-<body package="Thrift" selector="writeString:">writeString: aString		self		writeI32: aString size;		write: aString</body>
+<body package="Thrift" selector="writeInt:size:">writeInt: val size: size		1		to: size		do:			[:n | self writeByte: ((val bitShift: (size negated + n) * 8) bitAnd: 16rFF)]</body>
+
+<body package="Thrift" selector="write:">write: aString		transport write: aString</body>
+
+<body package="Thrift" selector="writeByte:">writeByte: aNumber		aNumber &gt; 16rFF ifTrue: [TError signal: 'writeByte too big'].	transport write: (Array with: aNumber)</body>
+
+<body package="Thrift" selector="writeSetBegin:">writeSetBegin: aSet		self		writeByte: aSet elemType;		writeI32: aSet size</body>
 
 <body package="Thrift" selector="writeMessageBegin:">writeMessageBegin: msg		self		writeI32: (self version1 bitOr: msg type);		writeString: msg name;		writeI32: msg seqid</body>
+
+<body package="Thrift" selector="writeListBegin:">writeListBegin: aList		self		writeByte: aList elemType;		writeI32: aList size</body>
+
+<body package="Thrift" selector="writeDouble:">writeDouble: aDouble		self		writeI32: (aDouble basicAt: 1);		writeI32: (aDouble basicAt: 2)</body>
+
+<body package="Thrift" selector="writeMapBegin:">writeMapBegin: aMap		self		writeByte: aMap keyType;		writeByte: aMap valueType;		writeI32: aMap size</body>
 </methods>
 
 <methods>
@@ -483,35 +572,35 @@
 <methods>
 <class-id>TBinaryProtocol</class-id> <category>reading</category>
 
-<body package="Thrift" selector="readRawInt:">readRawInt: size		^self intFromByteArray: (transport read: size)</body>
-
-<body package="Thrift" selector="readMessageBegin">readMessageBegin		| version |	version := self readI32.	(version bitAnd: self versionMask) = self version1		ifFalse: [TProtocolError signalWithCode: TProtocolError badVersion].	^(TMessage new)		type: (version bitAnd: 16r000000FF);		name: self readString;		seqid: self readI32</body>
-
 <body package="Thrift" selector="readString">readString		| sz |	sz := self readI32.	^sz &gt; 0		ifTrue: [(transport read: sz) asString]		ifFalse: ['']</body>
 
 <body package="Thrift" selector="readDouble">readDouble		| val |	val := Float new: 2.	^val		basicAt: 1			put: (self readRawInt: 4);		basicAt: 2			put: (self readRawInt: 4);		yourself</body>
 
 <body package="Thrift" selector="readByte">readByte		^(self transport read: 1) first</body>
 
-<body package="Thrift" selector="readSetBegin">readSetBegin	"element type, size"		^(TSet new)		elemType: self readByte;		size: self readI32</body>
-
-<body package="Thrift" selector="unsignedInt:size:">unsignedInt: val size: size		^0 - (val - 1 bitXor: (2 raisedTo: size * 8) - 1)</body>
-
-<body package="Thrift" selector="readI64">readI64		^self readInt: 8</body>
-
-<body package="Thrift" selector="readBool">readBool		^self readByte isZero not</body>
-
-<body package="Thrift" selector="readListBegin">readListBegin		^(TList new)		elemType: self readByte;		size: self readI32</body>
+<body package="Thrift" selector="readMapBegin">readMapBegin		^(TMap new)		keyType: self readByte;		valueType: self readByte;		size: self readI32</body>
 
 <body package="Thrift" selector="readI32">readI32		^self readInt: 4</body>
 
+<body package="Thrift" selector="readMessageBegin">readMessageBegin		| version |	version := self readI32.	(version bitAnd: self versionMask) = self version1		ifFalse: [TProtocolError signalWithCode: TProtocolError badVersion].	^(TMessage new)		type: (version bitAnd: 16r000000FF);		name: self readString;		seqid: self readI32</body>
+
+<body package="Thrift" selector="unsignedInt:size:">unsignedInt: val size: size		^0 - (val - 1 bitXor: (2 raisedTo: size * 8) - 1)</body>
+
 <body package="Thrift" selector="readFieldBegin">readFieldBegin		| field |	field := TField new type: self readByte.	^field type = TType stop		ifTrue: [field]		ifFalse:			[field				id: self readI16;				yourself]</body>
 
-<body package="Thrift" selector="intFromByteArray:">intFromByteArray: buf		| vals |	vals := Array new: buf size.	1		to: buf size		do:			[:n | 			vals				at: n				put: ((buf at: n) bitShift: (buf size - n) * 8)].	^vals sum</body>
+<body package="Thrift" selector="readBool">readBool		^self readByte isZero not</body>
+
+<body package="Thrift" selector="readI64">readI64		^self readInt: 8</body>
+
+<body package="Thrift" selector="readSetBegin">readSetBegin	"element type, size"		^(TSet new)		elemType: self readByte;		size: self readI32</body>
 
 <body package="Thrift" selector="readInt:">readInt: size		| buf val |	buf := transport read: size.	val := self intFromByteArray: buf.	^buf first &gt; 16r7F		ifTrue: [self unsignedInt: val size: size]		ifFalse: [val]</body>
 
-<body package="Thrift" selector="readMapBegin">readMapBegin		^(TMap new)		keyType: self readByte;		valueType: self readByte;		size: self readI32</body>
+<body package="Thrift" selector="intFromByteArray:">intFromByteArray: buf		| vals |	vals := Array new: buf size.	1		to: buf size		do:			[:n | 			vals				at: n				put: ((buf at: n) bitShift: (buf size - n) * 8)].	^vals sum</body>
+
+<body package="Thrift" selector="readRawInt:">readRawInt: size		^self intFromByteArray: (transport read: size)</body>
+
+<body package="Thrift" selector="readListBegin">readListBegin		^(TList new)		elemType: self readByte;		size: self readI32</body>
 
 <body package="Thrift" selector="readI16">readI16		^self readInt: 2</body>
 </methods>
@@ -531,6 +620,15 @@
 
 
 <methods>
+<class-id>TSizedObject</class-id> <category>as yet unclassified</category>
+
+<body package="Thrift" selector="size:">size: anInteger		size := anInteger</body>
+
+<body package="Thrift" selector="size">size		^size ifNil: [0]</body>
+</methods>
+
+
+<methods>
 <class-id>TClient class</class-id> <category>as yet unclassified</category>
 
 <body package="Thrift" selector="binaryOnHost:port:">binaryOnHost: aString port: anInteger		| sock |	sock := (TSocket new)		host: aString;		port: anInteger;		open;		yourself.	^(self new)		inProtocol: (TBinaryProtocol new transport: sock);		yourself</body>
@@ -540,13 +638,13 @@
 <methods>
 <class-id>TClient</class-id> <category>as yet unclassified</category>
 
-<body package="Thrift" selector="nextSeqid">nextSeqid		^seqid		ifNil: [seqid := 0]		ifNotNil: [seqid := seqid + 1]</body>
-
 <body package="Thrift" selector="outProtocol:">outProtocol: aProtocol		oprot := aProtocol</body>
+
+<body package="Thrift" selector="inProtocol:">inProtocol: aProtocol		iprot := aProtocol.	oprot ifNil: [oprot := aProtocol]</body>
 
 <body package="Thrift" selector="validateRemoteMessage:">validateRemoteMessage: aMsg		remoteSeqid		ifNil: [remoteSeqid := aMsg seqid]		ifNotNil:			[remoteSeqid + 1 = aMsg seqid				ifFalse:					[TProtocolError						signal:							'Bad seqid: ' , aMsg seqid asString , '; wanted: ' , remoteSeqid asString].			remoteSeqid := aMsg seqid]</body>
 
-<body package="Thrift" selector="inProtocol:">inProtocol: aProtocol		iprot := aProtocol.	oprot ifNil: [oprot := aProtocol]</body>
+<body package="Thrift" selector="nextSeqid">nextSeqid		^seqid		ifNil: [seqid := 0]		ifNotNil: [seqid := seqid + 1]</body>
 </methods>
 
 
@@ -562,29 +660,20 @@
 
 <body package="Thrift" selector="listenProcess">listenProcess	^listenProcess</body>
 
-<body package="Thrift" selector="start">start	iprot ifNotNil: [ 		iprot transport ifNotNil: [ :tran |			self listenProcess ifNotNil: [ :proc | proc terminateWithExtremePrejudice ].			self listenProcess: ([				[ tran isOpen ] whileTrue: [					tran accept				]			] forkAt: 35).		].	]</body>
+<body package="Thrift" selector="listenProcess:">listenProcess: aProcessInstance	listenProcess := aProcessInstance</body>
 
 <body package="Thrift" selector="stop">stop	iprot ifNotNil: [ 		iprot transport ifNotNil: [ :tran |			tran close.			self listenProcess ifNotNil: [ :proc | proc terminateWithExtremePrejudice ].		].	]</body>
 
-<body package="Thrift" selector="listenProcess:">listenProcess: aProcessInstance	listenProcess := aProcessInstance</body>
-</methods>
-
-
-<methods>
-<class-id>TSizedObject</class-id> <category>as yet unclassified</category>
-
-<body package="Thrift" selector="size:">size: anInteger		size := anInteger</body>
-
-<body package="Thrift" selector="size">size		^size ifNil: [0]</body>
+<body package="Thrift" selector="start">start	iprot ifNotNil: [ 		iprot transport ifNotNil: [ :tran |			self listenProcess ifNotNil: [ :proc | proc terminateWithExtremePrejudice ].			self listenProcess: ([				[ tran isOpen ] whileTrue: [					tran accept				]			] forkAt: 35).		].	]</body>
 </methods>
 
 
 <methods>
 <class-id>TList</class-id> <category>accessing</category>
 
-<body package="Thrift" selector="elemType">elemType		^elemType ifNil: [TType stop]</body>
-
 <body package="Thrift" selector="elemType:">elemType: anInteger		elemType := anInteger</body>
+
+<body package="Thrift" selector="elemType">elemType		^elemType ifNil: [TType stop]</body>
 </methods>
 
 
@@ -602,31 +691,39 @@
 
 
 <methods>
-<class-id>TSocket</class-id> <category>as yet unclassified</category>
+<class-id>TSocket</class-id> <category>private</category>
 
-<body package="Thrift" selector="read:">read: size		| data |	[data := stream next: size.	data isEmpty		ifTrue:			[TTransportError signal: 'Could not read ' , size asString , ' bytes'].	^data]		on: OsError		do: [TTransportClosedError signal]</body>
+<body package="Thrift" selector="privateStream:">privateStream: aStream	^stream := aStream</body>
+</methods>
+
+<methods>
+<class-id>TSocket</class-id> <category>as yet unclassified</category>
 
 <body package="Thrift" selector="host:">host: aString		host := aString</body>
 
+<body package="Thrift" selector="socketAccessor">socketAccessor		^Smalltalk		at: #SocketAccessor		ifAbsent: [ Error raiseSignal: 'Socket Accessor Not Found' ]</body>
+
+<body package="Thrift" selector="flush">flush		stream flush</body>
+
+<body package="Thrift" selector="connect">connect	"Returns instance of #socketAccessor class"	socket := self socketAccessor		family: self socketAccessor AF_INET type: self socketAccessor SOCK_STREAM.	[ socket connectTo: (IPSocketAddress hostName: host port: port) timeout: 180 ]		ifCurtailed: [ socket close ].	^(socket readAppendStream) binary; yourself</body>
+
 <body package="Thrift" selector="write:">write: aCollection		[		"stream writeStream setBinary: (aCollection isString not).		stream setBinary: (aCollection isString not)."		stream nextPutAll: (aCollection isString ifTrue: [ aCollection asByteArray ] ifFalse: [ aCollection ])	]		on: OsError		do: [TTransportClosedError signal]</body>
+
+<body package="Thrift" selector="isOpen">isOpen		^stream isNil not		and: [socket notNil and: [ socket isActive]]</body>
+
+<body package="Thrift" selector="accept">accept	socket ifNotNil: [		socket accept	].</body>
+
+<body package="Thrift" selector="port:">port: anInteger		port := anInteger</body>
+
+<body package="Thrift" selector="wait">wait	socket ifNotNil: [		socket readWait	].</body>
+
+<body package="Thrift" selector="open">open		stream := self connect</body>
+
+<body package="Thrift" selector="read:">read: size		| data |	[data := stream next: size.	data isEmpty		ifTrue:			[TTransportError signal: 'Could not read ' , size asString , ' bytes'].	^data]		on: OsError		do: [TTransportClosedError signal]</body>
 
 <body package="Thrift" selector="close">close		[self isOpen ifTrue: [stream close]] ensure: [			socket ifNotNil: [			socket close. socket := nil.		]	]</body>
 
 <body package="Thrift" selector="bind">bind	"Returns instance of #socketAccessor class"	socket := self socketAccessor		family: self socketAccessor AF_INET type: self socketAccessor SOCK_STREAM.	[ socket bindTo: (IPSocketAddress hostName: host port: port) ]		ifCurtailed: [ socket close ].	socket listenFor: 200.	^(socket readAppendStream) binary; yourself</body>
-
-<body package="Thrift" selector="accept">accept	socket ifNotNil: [		socket accept	].</body>
-
-<body package="Thrift" selector="socketAccessor">socketAccessor		^Smalltalk		at: #SocketAccessor		ifAbsent: [ Error raiseSignal: 'Socket Accessor Not Found' ]</body>
-
-<body package="Thrift" selector="isOpen">isOpen		^stream isNil not		and: [socket notNil and: [ socket isActive]]</body>
-
-<body package="Thrift" selector="open">open		stream := self connect</body>
-
-<body package="Thrift" selector="flush">flush		stream flush</body>
-
-<body package="Thrift" selector="port:">port: anInteger		port := anInteger</body>
-
-<body package="Thrift" selector="connect">connect	"Returns instance of #socketAccessor class"	socket := self socketAccessor		family: self socketAccessor AF_INET type: self socketAccessor SOCK_STREAM.	[ socket connectTo: (IPSocketAddress hostName: host port: port) timeout: 180 ]		ifCurtailed: [ socket close ].	^(socket readAppendStream) binary; yourself</body>
 </methods>
 
 
@@ -646,9 +743,9 @@
 
 <body package="Thrift" selector="read:">read: anInteger		self subclassResponsibility</body>
 
-<body package="Thrift" selector="readAll:">readAll: anInteger		^String new writeStream		ifNotNil:			[:str | 			[str size &lt; anInteger]				whileTrue: [str nextPutAll: (self read: anInteger - str size)]]</body>
-
 <body package="Thrift" selector="write:">write: aString		self subclassResponsibility</body>
+
+<body package="Thrift" selector="readAll:">readAll: anInteger		^String new writeStream		ifNotNil:			[:str | 			[str size &lt; anInteger]				whileTrue: [str nextPutAll: (self read: anInteger - str size)]]</body>
 
 <body package="Thrift" selector="close">close		self subclassResponsibility</body>
 
@@ -661,21 +758,21 @@
 <methods>
 <class-id>TType class</class-id> <category>as yet unclassified</category>
 
+<body package="Thrift" selector="i32">i32		^8</body>
+
+<body package="Thrift" selector="i16">i16		^6</body>
+
 <body package="Thrift" selector="string">string		^11</body>
 
 <body package="Thrift" selector="set">set		^14</body>
 
 <body package="Thrift" selector="nameOf:">nameOf: aTypeCode		self typeMap do: [:each | each second = aTypeCode ifTrue: [^each first]].	^nil</body>
 
-<body package="Thrift" selector="i32">i32		^8</body>
-
-<body package="Thrift" selector="codeOf:">codeOf: aTypeName		self typeMap do: [:each | each first = aTypeName ifTrue: [^each second]].	^nil</body>
-
 <body package="Thrift" selector="stop">stop		^0</body>
 
-<body package="Thrift" selector="i16">i16		^6</body>
-
 <body package="Thrift" selector="bool">bool		^2</body>
+
+<body package="Thrift" selector="codeOf:">codeOf: aTypeName		self typeMap do: [:each | each first = aTypeName ifTrue: [^each second]].	^nil</body>
 
 <body package="Thrift" selector="struct">struct		^12</body>
 
@@ -685,13 +782,13 @@
 
 <body package="Thrift" selector="map">map		^13</body>
 
-<body package="Thrift" selector="i64">i64		^10</body>
-
 <body package="Thrift" selector="double">double		^4</body>
+
+<body package="Thrift" selector="list">list		^15</body>
 
 <body package="Thrift" selector="byte">byte		^3</body>
 
-<body package="Thrift" selector="list">list		^15</body>
+<body package="Thrift" selector="i64">i64		^10</body>
 </methods>
 
 
@@ -716,13 +813,13 @@
 
 <body package="Thrift" selector="unknown">unknown		^0</body>
 
-<body package="Thrift" selector="invalidData">invalidData		^1</body>
+<body package="Thrift" selector="badVersion">badVersion		^4</body>
 
 <body package="Thrift" selector="sizeLimit">sizeLimit		^3</body>
 
-<body package="Thrift" selector="negativeSize">negativeSize		^2</body>
+<body package="Thrift" selector="invalidData">invalidData		^1</body>
 
-<body package="Thrift" selector="badVersion">badVersion		^4</body>
+<body package="Thrift" selector="negativeSize">negativeSize		^2</body>
 </methods>
 
 
